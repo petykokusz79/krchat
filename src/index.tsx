@@ -31,3 +31,5 @@ export function toggleTheme() {
 	document.documentElement.classList.toggle("theme-light");
 	localStorage["theme"] = document.documentElement.classList.contains("theme-light") ? "light" : "dark";
 }
+
+Notification.requestPermission()

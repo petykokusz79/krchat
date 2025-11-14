@@ -12,4 +12,13 @@ async function impl(e) {
 	}
 }
 
+async function push(e) {
+	message = e.data?.text()
+	if (message) {
+		self.registration.showNotification("Chat Notification", { body: message });
+		e.WaitUntil();
+	}
+}
+
 self.addEventListener("fetch", e => e.respondWith(impl(e))); // Eseményre feliratkozás
+self.addEventListener("push", e => e.respondWith(push(e)));
