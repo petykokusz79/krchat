@@ -1,0 +1,109 @@
+:root {
+	--html-background: #333336;
+	/* ide jön minden más szín, méret, betűtípus, ... */
+	--html-color: white;
+	--input-background: black;
+	--button-background: #2ae;
+	--button-box-shadow-color: black;
+	--button-hover-background: #3cf;
+	--button-active-background: #17b;
+	--logo-color: #2ae;
+	--logo-text-shadow: black;
+}
+
+.theme-light {
+	--html-background: white;
+	/* mindent CSS változót írjunk felül itt, ami ebben a témában más */
+	--html-color: black;
+	--input-background: lightgray;
+	--button-box-shadow-color: gray;
+	--button-hover-background: #17b;
+	--button-active-background: #3cf;
+	--logo-text-shadow: gray;
+}
+
+html {
+	font-family: 'Segoe UI', sans-serif;
+	/*Font*/
+	font-size: 16px;
+	/*Font mérete (16px=12pt)*/
+	line-height: 1.5;
+	/*Sormagasság, 16px*1.5=24px, tipikus mostanában*/
+	background: var(--html-background);
+	/*Sötét téma sötét háttérrel*/
+	color: var(--html-color);
+	/*Sötét téma fehér betűkkel*/
+}
+
+html,
+body,
+div {
+	margin: 0;
+	/* CSS reset */
+	padding: 0;
+	/* CSS reset */
+	display: grid;
+	/* grid-re állunk át mindenhol */
+	grid: minmax(0, 1fr) / minmax(0, 1fr);
+	/* Az egyetlen gyerek szülő méretű */
+}
+
+body {
+	min-height: 100vh;
+	/* ablak méretű */
+	max-height: 100vh;
+	/* ablak méretű */
+}
+
+input,
+button,
+a {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	border: 0;
+	/* ne legyen kerete a buttonnak és az inputnak */
+	color: inherit;
+}
+
+input {
+	background: var(--input-background);
+	/* Sötét téma */
+}
+
+button {
+	padding: 8px 16px;
+	/* Tágas */
+	background: var(--button-background);
+	/* Sötét téma */
+	font-weight: 600;
+	/* Bold */
+	border-radius: 7px;
+	/* Lekerekített */
+	box-shadow: 1px 2px 10px var(--button-box-shadow-color);
+	/* Árnyék */
+	transition: all 145ms ease-out;
+
+	/* Átmenet az árnyékra és színre, ami változik */
+	&:hover {
+		background: var(--button-hover-background);
+		/* Megváltoztatja a színét, ha fölé visszük az egeret */
+		box-shadow: 2px 5px 20px var(--button-box-shadow-color);
+		/* Nagyobb árnyék, ha kiemelkedik */
+	}
+
+	&:active {
+		box-shadow: none;
+		/* Lenyomva nincs árnyék */
+		background: var(--button-active-background);
+		/* Megváltoztatja a színét, ha aktiváljuk (lenyomjuk) */
+	}
+}
+
+.material-symbols-outlined {
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24
+}
