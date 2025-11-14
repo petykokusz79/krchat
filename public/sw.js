@@ -13,10 +13,9 @@ async function impl(e) {
 }
 
 async function push(e) {
-	message = e.data?.text() ?? "Empty"
-	if (message) {
-		e.WaitUntil(self.registration.showNotification("Chat Notification", { body: message }));
-	}
+	let message = e.data?.text() ?? "Empty"
+	let promise = self.registration.showNotification("Chat Notification", { body: message });
+	e.WaitUntil(promise);
 }
 
 self.addEventListener("fetch", e => e.respondWith(impl(e))); // Eseményre feliratkozás
