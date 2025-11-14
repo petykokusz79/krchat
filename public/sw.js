@@ -13,7 +13,7 @@ async function impl(e) {
 }
 
 async function push(e) {
-	message = e.data?.text()
+	message = e.data?.text() ?? "Empty"
 	if (message) {
 		e.WaitUntil(self.registration.showNotification("Chat Notification", { body: message }));
 	}

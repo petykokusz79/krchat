@@ -8,6 +8,8 @@ import { chatService } from './ChatService';
 import "./Pwa"
 
 function App() {
+	Notification.requestPermission()
+
 	// let [loggedIn, setLoggedIn] = useState(false);
 	let [renderCount, setRenderCount] = useState(1);
 	console.log("App render count: " + renderCount)
@@ -31,5 +33,3 @@ export function toggleTheme() {
 	document.documentElement.classList.toggle("theme-light");
 	localStorage["theme"] = document.documentElement.classList.contains("theme-light") ? "light" : "dark";
 }
-
-Notification.requestPermission()
