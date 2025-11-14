@@ -8,7 +8,7 @@ import { chatService } from './ChatService';
 import "./Pwa"
 
 function App() {
-	Notification.requestPermission()
+	Notification.requestPermission();
 
 	// let [loggedIn, setLoggedIn] = useState(false);
 	let [renderCount, setRenderCount] = useState(1);
